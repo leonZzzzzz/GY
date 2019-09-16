@@ -1,0 +1,49 @@
+<view class="main-container">
+<!-- unused：未使用  use：已使用 expired：已过期  -->
+  <scroll-view scroll-x='true' class="nav-header-view" scroll-into-view="{{curSwiperIdx=='5'?'listReturn':''}}">
+    <view class="header-col-view {{type == 'unused' ? 'show-border-bottom' : '' }}" data-type='unused' bindtap="swichSwiperItem">
+      <text data-idx='0'>未使用</text>
+    </view>
+    <view class="header-col-view {{type == 'expired' ? 'show-border-bottom' : '' }}" data-type='expired' bindtap="swichSwiperItem">
+      <text data-idx='1'>已过期</text>
+    </view>
+    <view class="header-col-view {{type == 'use' ? 'show-border-bottom' : '' }}" data-type='use' bindtap="swichSwiperItem">
+      <text data-idx='2'>已使用</text>
+    </view>
+  </scroll-view>
+
+  <view  class="card-list-view">    
+    <block wx:for="{{offlineData}}" wx:if="{{offlineData.length>0}}" wx:for-item="card" wx:key="{{index}}">
+      <view class="card-item-view" data-isplat="{{card.is_platform_coupon}}" data-storeid="{{card.store_id}}" bindtap='goDetail'>
+        <view class="card-list-view-left">
+          <view class='card-item-up'>
+            <view class="card-item-up-left">
+              <view class="card-money-text">￥
+                <text>{{card.face_money}}</text>
+              </view>
+              <view class="card-limit-text">{{card.type_left}}</view>
+            </view>
+            <view class='card-item-up-middle'>
+              <view class="card-title-text">{{card.cname}}</view>
+              <view class="card-time-text">{{card.start_time_str}}~{{card.end_time_str}}</view>
+              <view class='card-type-text'>{{card.get_way}}</view>
+            </view>
+          </view>
+        </view>
+        <view class="card-list-view-right">
+          <view class="card-list-view-right-text">{{card.is_platform_coupon==1?'平台优惠券':'供应商优惠券'}}</view>
+        </view>
+        <view class="card-item-btn-view">
+          <text>立即使用</text>
+        </view>
+      </view>
+    </block>
+    <view wx:if="{{offlineData.length==0}}" class="no-data-view">
+      <image src="../image/ma_card_no_1.png" mode="widthFix" class="no-data-image"/>
+      <text class="mText" class="no-data-text">还没有可以用的优惠券</text>
+    </view>
+  </view>
+</view>
+
+
+

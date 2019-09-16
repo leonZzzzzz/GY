@@ -1,0 +1,31 @@
+<view class="content">
+  <view class="con-row">
+    <text>手机号</text>
+    <input value='{{phone}}' disabled='false'></input>
+  </view>
+  <view class="con-row">
+    <text>身份</text>
+    <radio-group bindchange="milkbrand" class="groupright">
+      <view class="checq" wx:for="{{methsend}}" wx:for-item="meth">
+        <radio value="{{meth.value}}" checked="{{meth.checked}}"></radio>
+        <text class="milktext">{{meth.name}}</text>
+      </view>
+    </radio-group>
+  </view>
+  <view class="con-row" wx:if="{{istype==2}}">
+    <text>单位名称</text>
+    <input bindinput="getcompany"></input>
+  </view>
+  <view class="con-row">
+    <text>联系人姓名</text>
+    <input bindinput="getusername"></input>
+  </view>
+  <view class="con-row">
+    <text>推荐人手机号</text>
+    <input bindinput="interphone"></input>
+  </view>
+  <view class="btn" bindtap="getUserUid">
+    <text>提交</text>
+  </view>
+</view>
+

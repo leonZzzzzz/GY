@@ -1,0 +1,25 @@
+
+<view class="apply-row" wx:for="{{return_list}}">
+  <view class="title">
+    <text>{{item.store_name}}</text>
+    <text>{{item.type_txt}}</text>
+  </view>
+  <block wx:for="{{item.list}}" wx:for-item="val">
+    <view class="apply-content">
+      <image src="{{val.image}}"></image>
+      <view class="hebig">
+        <text class="valname">{{val.name}}</text>
+        <view style="flex-direction:column;font-size:22rpx !important;color:#999;">
+          <text wx:for="{{val.sku_data_arr}}" wx:for-item="sku">{{sku.name}}:{{sku.value}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="applysale">
+      <image wx:if="{{item.icon==0}}" src="../../img/clock.png"></image>
+      <image wx:if="{{item.icon==2}}" src="../../img/check.png"></image>
+      <image wx:if="{{item.icon==1}}" src="../../img/refuse.png"></image>
+      <text class="sales-a">{{item.status_txt}}</text>
+      <text class="sales-b" bindtap="goDetail" data-returnid="{{val.return_id}}">查看详情</text>
+    </view>
+  </block>
+</view>

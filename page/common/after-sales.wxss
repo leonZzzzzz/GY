@@ -1,0 +1,60 @@
+.apply-row{
+  margin:20rpx 20rpx 0 20rpx;
+  background:#fff;
+  border-radius: 10rpx;
+  padding:20rpx;
+  flex-direction: column;
+}
+.apply-row>text{
+  font-size:30rpx;
+}
+.apply-content{
+  margin:20rpx 0 0 20rpx;
+  padding-bottom:20rpx;
+border-bottom:1px solid #eee;
+}
+.apply-content image{
+  width:120rpx;
+  height:120rpx;
+}
+.hebig{
+  flex-direction: column;
+  font-size:26rpx;
+  width:500rpx;
+margin-left:20rpx;
+}
+.valname{text-overflow:ellipsis;
+display:-webkit-box;
+-webkit-box-orient:vertical;
+-webkit-line-clamp:1;
+overflow:hidden;
+}
+.applysale{
+  margin:20rpx 0 0 20rpx;
+  justify-content: space-between;
+}
+.applysale image{
+  width:40rpx;
+  height:40rpx;
+}
+.applysale text{
+  font-size:24rpx;
+  justify-content:flex-right;
+}
+.sales-a{
+  width:450rpx;
+}
+.sales-b{
+  background:#0789ca;
+  color:#fff;
+  padding:10rpx 20rpx;
+  border-radius:10rpx;
+}
+.title{
+  justify-content: space-between;
+  font-size:30rpx;
+}
+.title text:last-child{
+  font-size:28rpx;
+  color:#FF840B;
+}

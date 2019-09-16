@@ -1,0 +1,79 @@
+
+<view style="flex-direction:column;">
+  <view class="notice">
+    <text>公告：谷裕优鲜正式上线，全场商品免配送费</text>
+  </view>
+
+  <view class="search">
+    <view class="seat">
+      <text>广州</text>
+      <image src="../../image/group-down.png"></image>
+    </view>
+    <view class="searchview" bindtap="gosearch">
+      <input placeholder='请输入你想要采购的商品' placeholder-class='placestyle'></input>
+    </view>
+    <image  class="draw" src='../../../img/gy-icon_20.png' bindtap="gocoupon"></image>
+  </view>
+
+  <swiper wx:if="{{bannerList.length>0}}" autoplay='autoplay' class='list-header-image' indicator-dots='true' indicator-active-color='#ff3030' indicator-color='#ffffff' interval='3000' circular='true'>
+    <swiper-item class='list-header-image' wx:for='{{bannerList}}' wx:key="{{index}}">
+      <view class='header-image' bindtap='areaClickGo' data-type="{{item.redi_type}}" data-rediurl="{{item.rediurl}}" data-id='{{item.id}}' data-jump="{{item.jump_wxapp}}" data-msid="{{item.msid}}">
+        <image class='header-image' mode='aspectFill' lazyLoad="true" src='{{item.redi_type?item.banner:"../../image/tab/head-no.png"}}'/>
+      </view>
+    </swiper-item>
+  </swiper>
+  <swiper wx:else autoplay='autoplay' class='list-header-image' indicator-dots='true' indicator-active-color='#ff3030' indicator-color='#ffffff' interval='3000' circular='true'>
+    <swiper-item class='list-header-image'>
+      <navigator class='header-image'>
+        <image src='../../image/tab/head-no.png' mode='aspectFill' lazyLoad="true"></image>
+      </navigator>
+    </swiper-item>
+  </swiper>
+
+  <view class='card-banner-area' >
+    <view wx:for="{{valueList}}" wx:key="{{index}}" class='card-banner-item'>
+      <image src='{{item.src}}'></image>
+      <text>{{item.txt}}</text>
+    </view>
+  </view>
+
+  <!-- 分类 -->
+  <swiper class="swiper-box"  indicator-dots="{{iswiper}}" indicator-color='#ddd' indicator-active-color='#FF840B' autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block>
+      <swiper-item>
+        <view class="two_box">
+          <view class="row-box">
+            <view class="col-box" wx:for="{{methodList}}" data-catid="{{item.cat_id}}" bindtap="gomethod">
+              <image src="{{item.cat_pic}}"></image>
+              <text>{{item.cat_name}}</text>
+            </view>   
+          </view>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+
+
+  <view class="trade" wx:for="{{productData}}">
+    <view class="trade-img">
+      <image class="topleft" src="../../../img/gy-icon_31.png"></image>
+      <text class="trade-title">{{item.name}}</text>
+      <image class="topleft" src="../../../img/gy-icon_33.png"></image>
+    </view>
+    
+    <view class="trade-col">
+      <view class="trade-box" wx:for="{{item.lists}}" wx:for-item="value" data-product='{{value.product_id}}' bindtap="gotodetail">
+        <image src="{{value.image}}"></image>
+        <text class="trade-name">{{value.name}}</text>
+        <text class="trade-prc">{{value.attr_name}}</text>
+        <view class="trade-price">
+          <view>
+            <text style="font-size:18rpx !important;margin-top:6rpx;">￥</text>
+            <text style="font-size:24rpx;">{{value.price}}</text>
+          </view>
+          <image src="../../../img/gy-icon_06.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

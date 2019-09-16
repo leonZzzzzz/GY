@@ -1,0 +1,36 @@
+page{
+  border-top:1px solid #eee;
+  background:#fff;
+}
+.content{
+  background:#fff;
+  padding:20rpx;
+  width:100%;
+  flex-direction: column;
+}
+.con-row{
+  padding:20rpx 0;
+  border-bottom:1px solid #eee;
+  justify-content: space-between;
+  font-size:30rpx;
+  width:100%;
+}
+.checq{
+  display:inline-block;
+  margin-left:20rpx;
+}
+.btn{
+  margin:50rpx 100rpx;
+  background:#0789ca;
+  border-radius: 10rpx;
+  padding:20rpx;
+  font-size:30rpx;
+  color:#fff;
+}
+.btn text{
+  margin:0 auto;
+}
+
+.con-row input,.groupright{
+  text-align: right;
+}

@@ -1,0 +1,60 @@
+<view class="container">
+  <view class="con-title">
+    <image src="../../img/Success-icon.png"></image>
+    <view class="con-name">
+      <text>阿海猪肉批发部</text>
+      <text>主营：</text>
+    </view>
+  </view>
+  <view>
+    <text class="con-red" bindtap="gocoupon">领券中心</text>
+    <text class="con-red green" bindtap="gocoupon">分享</text>
+  </view>
+</view>
+
+<view class="lesaldetail">
+  <text bindtap="golesalerDetail">店铺详情</text>
+</view>
+
+<swiper wx:if="{{bannerList.length>0}}" autoplay='autoplay' class='list-header-image' indicator-dots='true' indicator-active-color='#ff3030' indicator-color='#ffffff' interval='3000' circular='true'>
+  <swiper-item class='list-header-image' wx:for='{{bannerList}}' wx:key="{{index}}">
+    <view class='header-image' bindtap='areaClickGo' data-type="{{item.redi_type}}" data-rediurl="{{item.rediurl}}" data-id='{{item.id}}' data-jump="{{item.jump_wxapp}}" data-msid="{{item.msid}}">
+      <image class='header-image' mode='aspectFill' lazyLoad="true" src='{{item.redi_type?item.banner:"../../image/tab/head-no.png"}}'/>
+    </view>
+  </swiper-item>
+</swiper>
+<swiper wx:else autoplay='autoplay' class='list-header-image' indicator-dots='true' indicator-active-color='#ff3030' indicator-color='#ffffff' interval='3000' circular='true'>
+  <swiper-item class='list-header-image'>
+    <navigator class='header-image'>
+      <image src='../image/tab/head-no.png' mode='aspectFill' lazyLoad="true"></image>
+    </navigator>
+  </swiper-item>
+</swiper>
+
+<view class="partition">
+  <text class="{{order_by_field=='sales'?'reds':''}}" bindtap='checkItem' data-meth="sales">销量</text>
+  <text class="{{order_by_field=='price'?'reds':''}}" bindtap='checkItem' data-meth="price">价格</text>
+  <text class="{{order_by_field=='price'?'reds':''}}" bindtap='checkItem' data-meth="">好评</text>
+  <text class="level" bindtap='checkItem'>优质等级：优品</text>
+</view>
+
+<view class="detail-list">
+  <view class="list-one" wx:for="{{productList}}" bindtap='godetail' data-productid="{{item.product_id}}">
+    <image src="{{item.image}}"></image>
+    <view class="list-two">
+      <text class="list-name">{{item.name}}</text>
+      <text class="list-head">{{item.attr_name}}</text>
+      <view class="list-price">
+        <text>￥</text>
+        <text>{{item.price}}</text>
+      </view>  
+      <view class="stand">
+        <text>规格：11~13斤/件</text>
+        <text>已售<text>{{item.quantity}}</text>件</text>
+        <image class="isadd" src="../image/show.png"></image>
+      </view>
+    </view>
+  </view>
+  
+</view>
+

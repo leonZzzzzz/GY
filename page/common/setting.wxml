@@ -1,0 +1,42 @@
+  <view class='my-detail-msg' bindtap='goSetting'>
+    <view class='my-detail-gro'>
+      <text class='my-gro-text'>手机号</text>
+    </view>
+    <view class='my-gro-go'>
+      <text class='my-go-text'>{{phone}}</text>
+    </view>
+  </view>
+  <view class='my-detail-msg' bindtap='goSetting'>
+    <view class='my-detail-gro'>
+      <text class='my-gro-text'>UID</text>
+    </view>
+    <view class='my-gro-go'>
+      <text class='my-go-text'>{{uid}}</text>
+    </view>
+  </view>
+
+  <view class='my-detail-msg' bindtap='deleteAllClick'>
+    <view class='my-detail-gro'>
+      <text class='my-gro-text'>清除缓存</text>
+    </view>
+  </view>
+
+  <!-- <view class='my-detail-msg' bindtap='deleteAllClick' wx:if="{{host!='https://saas.qutego.com/'}}">
+    <view class='my-detail-gro'>
+      <text class='my-gro-text'>应用环境</text>
+    </view>
+    <view class='my-gro-go' wx:if="{{host=='https://grayscale.qutego.com/'}}">
+      <text class='my-go-text'>灰度服</text>
+    </view>
+    <view class='my-gro-go' wx:if="{{host=='https://dev.qutego.com/'}}">
+      <text class='my-go-text'>开发服</text>
+    </view>
+    <view class='my-gro-go' wx:if="{{host=='https://zy.qutego.com/'}}">
+      <text class='my-go-text'>测试服</text>
+    </view>
+  </view> -->
+  
+
+  <view class="version">
+    <text>Version 1.0.1</text>
+  </view>

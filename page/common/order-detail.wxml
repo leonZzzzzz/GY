@@ -1,0 +1,74 @@
+<view class="content"> 
+  <text class="order-num">订单号：6489792135644898945</text>
+  <text class="order-type">待支付</text>
+</view>
+
+<view class="content">
+  <image class="order-adress" src="../image/address.png"></image>
+  <view class="order-name">
+    <text>收货人：王xx 18956321568</text>
+    <text>广东省广州市xxxxxxxxx</text>
+  </view>
+  <image class="order-right" src="../image/address-go.png"></image>
+</view>
+
+<view class="order-list">
+  <text style="font-size:30rpx;">阿海猪肉批发</text>
+  <view class="content-list">
+    <view class="order-content">
+      <view style="justify-content:space-between">
+        <image class="order-img" src="../image/go-to-top.png"></image>
+        <view class="order-play">
+          <text class="order-a">商品名称啊哈哈看好尬看教练水电费哈数据库的合法开始就劳动法哈士大夫看机会接口和老客户</text>
+          <text class="order-b">规格</text>
+        </view>
+        <view class="order-play1">
+          <text class="order-a">￥10</text>
+          <text class="order-b">x1</text>
+        </view>
+      </view>
+      <view class="apply">
+        <text bindtap="applySales">申请售后</text>
+      </view>
+    </view>
+  </view>
+  
+  <view class='content-list mode'>
+    <text>配送方式：谷裕配送</text>
+    <text>配送时间：2019-08-20 08:00~12:00</text>
+  </view>
+
+  <view class="coupons">
+    <text>档口优惠</text>
+    <text>20元优惠券</text>
+  </view>
+  <view class="coupons">
+    <text>订单备注</text>
+    <text>备注备注备注</text>
+  </view>
+
+  <view class="coment">
+    <text>商品金额：￥500.00</text>
+    <text>物流服务费：+￥30.00</text>
+    <text>档口优惠：-￥50.00</text>
+    <text>平台优惠：-￥10.00</text>
+    <text>合计：<text style="color:#FF840B">￥410.00</text></text>
+  </view>
+</view>
+
+<view class="service">
+  <text>联系客服</text>
+</view>
+
+<view class="order-bottom">
+  <text style="margin-left:20rpx;line-height:80rpx;font-size:32rpx;">合计：<text style="color:#FF840B;">￥410.00</text></text>
+  <view class="btn" hidden="false">
+    <text class="cancelbtn">取消订单</text>
+    <text class="paybtn">去支付</text>
+  </view>
+  <view class="btn">
+    <text class="cancelbtn">再次购买</text>
+    <text class="paybtn" bindtap="gograde">评分</text>
+  </view>
+</view>
+

@@ -1,0 +1,68 @@
+<!-- 自定义showtoast -->
+<view class="box" wx:if="{{showtoast}}">
+  <view class="window">
+    <view class="text">{{toasttext}}</view>
+  </view>
+</view>
+
+<!--page/components/share-page.wxml-->
+<view class="overlay" wx:if="{{shareShade}}" slot="overlay">
+  <view class='overlay-shade' catchtap='onTap'></view>
+  <view class="invite-content">
+    <text>{{opt.title}}</text>
+    <text wx:if="{{opt.tip}}" class='gray m-t12'  wx:if='{{isFx==1}}'>{{opt.tip}}</text>
+    <view class='item-box'>
+      <view class='item'>
+        <button class='share-btn' open-type='share' data-title="{{product.name}}" data-price="{{product.price}}" data-imgurl="{{product.imgurl}}"></button>
+        <image src='{{opt.shareImg}}'></image>
+        <text>{{opt.shareTxt}}</text>
+      </view>
+      <view class='item' bindtap='onshowCode'  wx:if='{{isFx==1}}'>
+        <image src='{{opt.posterImg}}'></image>
+        <text>{{opt.posterTxt}}</text>
+      </view> 
+      <view class='item' bindtap='onshowposter'>
+        <image src='{{opt.picImg}}'></image>
+        <text>{{opt.picTxt}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="overlay poster" style='z-index:33333;' wx:if="{{codeFlag}}" slot="overlay">
+  <image class='overlay-close' src='../image/distribution/qugo_18.png' catchtap='codeclose'></image>
+  <view class="pic-content">
+    <image src="{{jdImg}}"></image>
+    <text>保存图片后，可分享到朋友圈</text>
+  </view>
+  <poster id="poster" hide-loading="{{true}}" preload="{{true}}" config="{{posterConfig}}" bind:success="saveCode" bind:fail="onPosterFail">
+      <button class='savephoto'>保存图片</button>
+    </poster>
+</view>
+
+<view class="overlay poster" style='z-index:33333;' wx:if="{{posterShade&&jdImg}}" slot="overlay">
+  <image class='overlay-close' src='../image/distribution/qugo_18.png' catchtap='onClose'></image>
+  <view class="poster-content">
+    <image src='{{poster.image}}' class='titleImg' mode='aspectFill'></image>
+    <text class='titleTxt'>{{poster.name}}</text>
+    
+
+     <view style="margin-top:50rpx;">
+      <view style="flex:1;display:inline-block;margin-top:20rpx;">
+        <view class="group-two">
+          <text> {{poster.tuan_number}}人拼团价</text>
+        </view>
+        <text class='red s-11' style='margin-bottom:6rpx;margin-left:10rpx;'>￥</text>
+        <text class='red'>{{poster.price}}</text>
+        <view wx:if="{{product.original_price!='0.00'}}" class = "pass">单买价:￥{{poster.start_price}}</view>
+      </view>
+      <view style="display:inline-block;">
+        <image class="qr-image" src='{{jdImg}}'></image>
+        <view class='s-10 gray m-t8'>扫描或长按小程序码</view>
+      </view>
+    </view>
+  </view>
+  <poster id="poster" hide-loading="{{true}}" preload="{{true}}" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail">
+    <button class='savephoto'>保存图片</button>
+  </poster>
+</view>

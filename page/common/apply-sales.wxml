@@ -1,0 +1,125 @@
+<view class='wrap'>
+  <view class="goods-info-block">
+    <text class="goods-text">订单号：544657973425753</text>
+  </view>
+
+  <view class="goods-info-block">
+    <view class="order-content">
+      <image src="../image/go-to-top.png"></image>
+      <view class="order-play">
+        <text class="order-a">商品名称啊哈哈看好尬看教练水电费哈数据库的合法开始就劳动法哈士大夫看机会接口和老客户</text>
+        <text class="order-b">规格</text>
+      </view>
+      <view class="order-play1">
+        <text class="order-a">￥10</text>
+        <text class="order-b">x1</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="formlist"> 
+    <view class="rowBar space">
+      <view>
+        <span>售后类型：</span>
+        <picker bindchange="bindCasPickerChange" wx:if="{{is_packaged==0}}" range="{{unfill}}">  
+          <view class="picker" hidden="{{flag}}">请选择</view>
+          <view class="picker1" hidden="{{!flag}}">  
+            {{unfill[index]}}
+          </view>
+        </picker> 
+        <picker bindchange="bindCasPickerChange" wx:if="{{is_packaged==1}}" range="{{fill}}">  
+          <view class="picker" hidden="{{flag}}">请选择</view>
+          <view class="picker1" hidden="{{!flag}}">  
+            {{fill[index]}}
+          </view>
+        </picker> 
+        <picker bindchange="bindCasPickerChange" wx:if="{{is_packaged==2}}" range="{{fills}}">  
+          <view class="picker" hidden="{{flag}}">请选择</view>
+          <view class="picker1" hidden="{{!flag}}">  
+            {{fills[index]}}
+          </view>
+        </picker> 
+        <image class="aroundright" src="../../../img/Get-icon.png"></image>
+      </view>
+    </view>
+    <view class="rowBar space">
+      <view>
+        <span>申请原因：</span>
+        <picker bindchange="bindCasPickereason" range="{{reason}}"  range-key="{{'name'}}">
+          <view class="picker" hidden="{{milk}}">请选择</view>
+          <view class="picker1" hidden="{{!milk}}">{{reason[ind].name}}</view>
+        </picker>
+        <image class="aroundright" src="../../../img/Get-icon.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="formlist">
+    <view class="rowBar rows">
+      <span>手机号码：</span>
+      <input type="number" bindinput='getphone' placeholder='便于卖家联系你' placeholder-style='color:#b3b1b1;margin-left:20rpx'></input>
+    </view>
+    <view class="rowBar rows">
+      <span>备注信息：</span>
+      <input bindinput='getreason' placeholder='最多可填写200字' maxlength="200" placeholder-style='color:#b3b1b1;margin-left:20rpx' style="width:530rpx"></input>
+    </view>
+  </view>
+  <view class="formlist">
+    <view class="rowBar rows pictrue">
+      <span>图片举证：</span>
+      <input value='可上传{{3-pics.length}}张图片' disabled='disabled' style='color:#b3b1b1;margin-left:20rpx'></input>
+    </view>
+
+
+    <view class="weui-uploader__bd">
+      <view class="weui-uploader__files">
+        <block wx:for="{{pics}}" wx:for-item="image">
+          <view class="weui-uploader__file">
+            <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" data-index="{{index}}"bindtap="previewImage"></image>
+            <image class="delete" src="../../../img/delete.png" catchtap='deleteImg'></image>
+          </view>
+        </block>
+      </view>
+      <!-- <canvas style="width:158rpx;height:158rpx;" canvas-id="myCanvas"></canvas> -->
+       <!-- isShow 这个是判断是否进行触发点隐藏操作  -->
+      <view class="weui-uploader__input-box {{isShow?'true':'hideTrue'}}">
+        <view class="weui-uploader__input" bindtap="chooseImage"></view>
+      </view>
+    </view>
+
+
+
+    <view class="method">
+      <text>*如有疑问请先咨询客服</text>   
+    </view>
+  </view>
+  
+  <view class="register">
+    <text wx:if="{{!isfor}}" class='submit' bindtap="save" data-order-id='{{orderId}}' data-product-id='{{productId}}'>提交</text>
+    <text wx:if="{{isfor}}" class='submit1'disabled="false">已经提交申请</text>
+  </view>
+
+  <!--服务类型选项开始  -->
+  <view class='apply-type' hidden="false">
+    <text class='apply-type-title'>服务类型</text>
+    <view class='apply-type-detail' bindtap='turnColor'>
+      <text class='apply-type-sales-return apply-type-sales-total {{turnStatus==1?"turn-color":""}}' data-status='1'>退款/退货</text>
+      <text class='apply-type-sales-exchange apply-type-sales-total {{turnStatus==2?"turn-color":""}}' data-status='2'>换货</text>
+      <text class='apply-type-sales-maintain apply-type-sales-total {{turnStatus==3?"turn-color":""}}' data-status='3'>维修</text>
+      <text class='apply-type-sales-reissue apply-type-sales-total {{turnStatus==4?"turn-color":""}}' data-status='4'>补发商品</text>
+    </view>
+  </view>
+
+  <!--提交申请开始  -->
+  <view class='apply-applications' hidden="false">
+    <image class='apply-applications-image' src='../../image/server-wechat.png'></image>
+    <text class='apply-applications-hint'>注:提交申请后,请再联系客服电话</text>
+    <view class='apply-applications-wechat'>
+      <text class='apply-applications-text'>客服电话:</text>
+        <text catchtap='calling' class='calling'>{{phoneTxt}}</text>
+      <!-- <text class='apply-applications-rem' selectable='true'>{{serverTxt}}</text> -->
+    </view>
+    <!-- <text class='apply-applications-copy'>长按微信号可复制</text>-->
+    <text class='apply-applications-submit apply-applications-submit-total' bindtap="{{isSale?'goSubmit':''}}" data-order-id='{{orderId}}' data-status='{{turnStatus}}' data-product-id='{{productId}}' wx:if='{{showHide}}'>提交申请</text>
+     <text wx:if='{{!showHide}}' class='apply-applications-yet apply-applications-submit-total'>已经提交申请</text>  
+  </view>
+</view>

@@ -1,0 +1,77 @@
+<!-- <import src="../../template/get-tel.wxml" />
+<template wx:if="{{hasPhone}}" is="getphone-modal" data="{{locationid}}"></template> -->
+<view  class="overlay" wx:if="{{uid==0}}">
+  <view class="overlay-content tel-content">
+    <view class="title">
+      <image class="overlay_image" src="https://grayscale.qutego.com/upload/wxapp/images/fenxiao/login_1.png"></image>
+      <text class="modal-firstText">您还没有登陆，请登录后查看订单</text>
+    </view>
+    <view class="modal-button">
+      <button  open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" data-locationid="{{locationid}}" catchtap='cancelPhone'>立即登录</button>
+    </view>
+  </view>
+</view>
+
+<view wx:else>
+  <block wx:if="{{cartData.length>0}}">
+    <view style="flex-direction:column;width:100%">
+      <view style="flex-direction:column;background:#fff;margin-top:20rpx;" wx:for="{{cartData}}">
+        <view class="store">
+          <view>
+            <icon wx:if="{{item.checked}}" type="success" size="20" color="#1BBC3D" bindtap="selectCheckbox" data-index="{{index}}"/>
+            <icon wx:else type="circle" size="20" color="#1BBC3D" bindtap="selectCheckbox" data-index="{{index}}"/>
+            <text class="store-name">{{item.store_name}}</text>
+          </view>
+          <text class="coupon">领券</text>
+        </view>
+        <view class="cartproduct" wx:for="{{item.list}}" wx:for-item="value">
+          <view style="justify-content:space-between">
+            <icon wx:if="{{value.checked}}" class="cart-icon" type="success" size="20" color="#1BBC3D" data-index="{{index}}" data-catid="{{value.pigcms_id}}" bindtap="bindCheckbox"/>
+            <icon wx:if="{{!value.checked}}" class="cart-icon" type="circle" size="20" color="#1BBC3D" data-index="{{index}}" data-catid="{{value.pigcms_id}}" bindtap="bindCheckbox"/>
+            <image class="cart-image" src="{{value.image}}"></image>
+            <view class="cartdetail">
+              <view class="cansen">
+                <text class="detail-name">{{value.name}}</text>
+                <image bindtap="deteleNum" data-cartid="{{value.pigcms_id}}" src="../../../img/gy-icon_87.png"></image>
+              </view>
+              <view style="min-height:32rpx;flex-direction:column;">
+                <text class="detail-weight" wx:for="{{value.sku_data}}" wx:for-item="sku">{{sku.name}}:{{sku.value}}</text>
+              </view>
+              <view class="cart-add">
+                <view class="cart-price">
+                  <text style="font-size:19rpx;margin-top:7rpx">￥</text>
+                  <text style="font-size:26rpx;">{{value.pro_price}}</text>
+                </view>
+                <view class="cart-add-reduce">
+                  <text class="cart-reduce cart-common" bindtap="bindMinus" data-cartid="{{value.pigcms_id}}" data-productid="{{value.product_id}}" data-skuid="{{value.sku_id}}" data-pronum="{{value.pro_num}}" data-index="{{index}}">-</text>
+                  <text class="cart-text-num cart-common-two" type="number" bindchange="bindManual">{{value.pro_num}}</text>
+                  <text class="cart-add cart-common" bindtap="bindPlus" data-cartid="{{value.pigcms_id}}" data-productid="{{value.product_id}}" data-skuid="{{value.sku_id}}" data-pronum="{{value.pro_num}}" data-index="{{index}}">+</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view style="height:122rpx;"></view>
+    </view>
+
+    <view class="settle">
+      <view class="checkall">
+        <icon wx:if="{{allcheck}}" type="success" size="20" color='#1BBC3D' bindtap="allCheckbox"/>
+        <icon wx:else type="circle" size="20" color='#1BBC3D' bindtap="allCheckbox"/>
+        <text>全选</text>
+      </view>
+      <view class="settle_price">
+        <view>
+          <text>合计<text style="color:#1BBC3D">￥{{total}}</text></text>
+          <text style="color:#999;">未含物流服务费</text>
+        </view>
+        <text class="account" bindtap="gobuy">去结算(2)</text>
+      </view>
+    </view>
+  </block>
+  <view wx:if="{{cartData.length==0}}" class="no-data-view">
+    <image src="../../../img/cart_99.png" mode="widthFix" class="no-data-image"/>
+    <text class="mText" class="no-data-text">购物车还是空的喔</text>
+  </view>
+</view>

@@ -1,0 +1,16 @@
+<import src="./get-tel.wxml" />
+<!-- <template wx:if="{{hasPhone}}" is="getphone-modal" data="{{locationid}}"></template> -->
+<view  class="overlay">
+  <view class="overlay-content tel-content">
+    <view class="title">
+      <!-- <image class="overlay_image" src="../../../img/login_1.png"></image> -->
+      <image class="overlay_image" src="https://grayscale.qutego.com/upload/wxapp/images/fenxiao/login_1.png"></image>
+      <text class="modal-firstText">需要您的登录才能更好的为您服务哦</text>
+    </view>
+    <view class="modal-button" style="flex-direction:column;">
+      <button  open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" data-locationid="{{locationid}}" catchtap='cancelPhone'>微信用户快速登录</button>
+      <text class="verifr" bindtap="phoneLogin">手机号验证登陆</text>
+    </view>
+  </view>
+  <text class="littletips">新用户将自动注册，登录&注册表示同意 <text>谷裕优鲜服务条款</text></text>
+</view>

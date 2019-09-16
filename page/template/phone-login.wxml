@@ -1,0 +1,13 @@
+<view class="container">
+  <image src="../../img/yapeilogo.png"></image>
+  <view class="form">
+    <view class="method">
+      <input placeholder='输入手机号' bindinput="methodphone"></input>
+      <text class="hi" bindtap="getcode">获取验证码</text>
+    </view>
+    <view class="method">
+      <input placeholder='验证码' bindinput="methodcode"></input>
+    </view>
+  </view>
+  <text class="btn" bindtap="nextstep">下一步</text>
+</view>

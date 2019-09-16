@@ -1,0 +1,34 @@
+<view style="background:#fff;flex-direction:column;">
+  <view class="details">
+    <text>店铺名称</text>
+    <text>{{detailData.name}}</text>
+  </view>
+  <view class="details">
+    <text>经营种类</text>
+    <text>{{detailData.intro}}</text>
+  </view>
+  <view class="details">
+    <text>接单时间</text>
+    <text>{{detailData.service_time}}</text>
+  </view>
+  <view class="details">
+    <text>店铺地址</text>
+    <text>{{detailData.address}}</text>
+  </view>
+  <view class="details">
+    <text>联系人</text>
+    <text>{{detailData.linkman}}</text>
+  </view>
+  <view class="details">
+    <text>联系电话</text>
+    <text>{{detailData.tel}}</text>
+  </view>
+  <view class="details">
+    <text>店铺介绍</text>
+    <text>老板很懒，没有介绍</text>
+  </view>
+  <view class="details">
+    <text>营业执照</text>
+    <image wx:if="{{detailData.license_img}}" src="{{detailData.license_img}}"></image>
+  </view>
+</view>

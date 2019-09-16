@@ -1,0 +1,27 @@
+.overlay {position:fixed;
+display:flex;
+top:0;
+justify-content:center;
+align-items:center;
+width:750rpx;
+height:100%;
+background-color:#fff;
+z-index:22222;
+}
+.tel-content {width:575rpx;
+height:850rpx;
+background-color:#fff;
+border-radius:20rpx;
+}
+.verifr{
+  font-size:26rpx;
+  margin:0 auto;
+  margin-top:30rpx;
+}
+.littletips{
+  margin:0 auto;
+  position:fixed;
+  bottom:50rpx;
+  font-size:24rpx;
+}
+

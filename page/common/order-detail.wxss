@@ -1,0 +1,156 @@
+.content{
+  justify-content: space-between;
+  margin:20rpx 20rpx  0 20rpx;
+  background:#fff;
+  border-radius: 10rpx;
+  padding:20rpx;
+}
+.order-num{
+  font-size:28rpx;
+}
+.order-type{
+  font-size:28rpx;
+  color:#FF840B;
+}
+.order-adress{
+  width:35rpx;
+  height:45rpx;
+  margin-top:20rpx;
+}
+.order-right{
+  width:20rpx;
+  height:35rpx;
+  margin-top:20rpx;
+}
+.order-name{
+  font-size:26rpx;
+  flex-direction: column;
+  width:530rpx;
+}
+.order-name text:last-child{
+  margin-top:20rpx;
+}
+.order-list{
+  flex-direction: column;
+  margin:20rpx 20rpx 0 20rpx;
+background:#fff;
+border-radius:10rpx;
+padding:20rpx;
+}
+.content-list{
+  flex-direction:column;border-bottom:1px solid #eee;padding-bottom:10rpx;
+  font-size:26rpx;
+}
+.order-content{
+  /* justify-content: space-between; */
+  margin-top:20rpx;
+  margin-bottom:10rpx;
+  margin-left:20rpx;
+  flex-direction: column;
+}
+.apply{
+  width:100%;
+  justify-content: flex-end;
+  margin-top:5rpx;
+}
+.apply text{
+border:1px solid #999;
+padding:5rpx 30rpx;
+font-size:12px;
+border-radius:10rpx;
+}
+.store-type{
+  color:#FF840B;
+}
+.order-img{
+  width:120rpx;
+  height:120rpx;
+}
+.order-play{
+  flex-direction: column;
+  width:450rpx;
+}
+.order-play1{
+flex-direction: column;
+text-align: right;
+}
+.order-a{
+  font-size:26rpx;
+  text-overflow:ellipsis;
+display:-webkit-box;
+-webkit-box-orient:vertical;
+-webkit-line-clamp:2;
+overflow: hidden;
+height:70rpx;
+}
+.order-b{
+  font-size:24rpx;
+  color:#999;
+  margin-top:10rpx;
+}
+.mode{
+  padding:20rpx 0;
+}
+.mode text:last-child{
+  margin-top:20rpx;
+  margin-left:20rpx;
+  background:#eee;
+  padding:20rpx 10rpx;
+}
+.coupons{
+  padding:20rpx 0;border-bottom:1px solid #eee;font-size:26rpx;
+}
+.coupons text:last-child{
+  font-size:24rpx;
+  margin-left:50rpx;
+  color:#999;
+}
+.coment{
+  flex-direction: column;
+  text-align: right;
+  font-size:24rpx;
+  color:#999;
+  margin-top:20rpx;
+}
+.coment text:last-child{
+  font-size:26rpx;
+  color:#000;
+  margin-top:5rpx;
+}
+.order-bottom{
+  position:fixed;
+  bottom:0;
+  width:100%;
+background:#fff;
+justify-content:space-between;
+/* padding:20rpx 0; */
+height:80rpx;
+}
+.btn{
+  font-size:28rpx;
+}
+.cancelbtn{
+  background:#ddd;
+  width:180rpx;
+  line-height: 80rpx;
+  text-align: center;
+}
+.paybtn{
+  background:#FF840B;
+  color:#fff;
+  width:180rpx;
+  line-height: 80rpx;
+  text-align: center;
+}
+.service{
+  position:fixed;
+  bottom:200rpx;
+  left:30rpx;
+  font-size:28rpx;
+}
+.service text{
+  background:#0789ca;
+  color:#fff;
+  padding:20rpx 10rpx;
+  border-radius: 10rpx;
+}

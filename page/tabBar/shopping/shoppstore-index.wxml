@@ -1,0 +1,44 @@
+<view class="container">
+  <!-- <view class="conleft">
+    <text wx:for="{{procList}}" class="{{cat_fid==item.cat_id?'back':''}}" data-catid="{{item.cat_id}}" bindtap="choosesidebar">{{item.name}}</text>
+  </view> -->
+  <view style="justify-content: space-between;background:#fff;height:82rpx;border-bottom:1px solid #eee;position:fixed;z-index:8881;">
+    <scroll-view scroll-x='true' class="nav-header-view" >
+      <view wx:for="{{procList}}" class="header-col-view {{cat_fid == item.cat_id?'back':''}}" data-catid="{{item.cat_id}}" bindtap="choosesidebar" >
+        <text>{{item.name}}</text>
+      </view>
+    </scroll-view>
+    <view class="down" bindtap="showdetail"  wx:if="{{showup}}">
+      <image src="../../image/coupon_down.png"></image>
+    </view>
+    <view class="down" bindtap="hidedetail" wx:if="{{!showup}}">
+      <image src="../../image/coupon_up.png"></image>
+    </view>
+  </view>
+  <view class="conright">
+    <view class="conproducts" wx:if="{{providerList.length>0}}" wx:for="{{providerList}}">
+      <view class="shop_store">
+        <view style="flex-direction:column;">
+          <text class="shopping">{{item.store_info.name}}</text>
+          <text class="subhead">{{item.store_info.intro}}</text>
+        </view>
+        <view  style="flex-direction:column;">
+          <text class="goinstore" data-storeid="{{item.store_info.store_id}}" bindtap="gowholesaler">进入店铺</text>
+          <text class="prod_quant">已售<text style="color:#FF840B !important;">{{item.store_info.prod_cnt}}</text>件</text>
+        </view>
+      </view>
+      
+      <view class="flex-con">
+        <view class="trade-box" wx:for="{{item.store_product}}" wx:for-item="val" bindtap="godetail" data-productid="{{val.product_id}}">
+          <image src="{{val.image}}"></image>
+          <text class="trade-name">{{val.name}}</text>
+        </view>
+      </view>
+    </view>
+
+     <view wx:if="{{providerList.length==0}}" class="no-data-view">
+      <image src="../../image/ma_card_no_1.png" mode="widthFix" class="no-data-image"/>
+      <text class="mText" class="no-data-text">此分类没有数据</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,37 @@
+.container{
+  background:#fff;
+  width:100%;
+  height:100%;
+  flex-direction: column;
+}
+.container>image{
+  width:430rpx;
+  height:250rpx;
+  margin:0 auto;
+  margin-top:100rpx;
+  margin-bottom:40rpx;
+}
+.form{
+  margin:20rpx 40rpx;
+  flex-direction: column;
+}
+.method{
+  padding:20rpx 0;
+  border-bottom:1px solid #eee;
+  font-size:30rpx;
+  justify-content:space-between;
+}
+.hi{
+  border:1px solid #999;
+padding:5rpx 15rpx;
+border-radius:10rpx;
+}
+.btn{
+  margin:0 auto;
+width:500rpx;
+background:#0789ca;
+text-align:center;
+padding:20rpx;
+border-radius:15rpx;
+color:#fff;
+}

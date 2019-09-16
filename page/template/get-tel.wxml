@@ -1,0 +1,35 @@
+<!-- 
+	couponCancel:  点击取消按钮
+  couponConfirm: 点击确认按钮
+ -->
+ <!--组件化-->
+<template name="getphone-modal" >
+<view  class="overlay" style="margin-top:-20px;height:104%" >
+  <view class='overlay-shade'></view>
+  <view class="overlay-content tel-content">
+    <view class="title">
+      <!-- <image class="overlay_image" src="../../../img/login_1.png"></image> -->
+      <image class="overlay_image" src="https://grayscale.qutego.com/upload/wxapp/images/fenxiao/login_1.png"></image>
+      <text class="modal-firstText">需要您的登录才能更好的为您服务哦</text>
+    </view>
+    <view class="modal-button">
+      <button  open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" data-locationid="{{locationid}}" catchtap='cancelPhone'>微信手机号快速登录</button>
+    </view>
+  </view>
+</view>
+</template>
+
+<template name="getuserInfo-modal">
+<view  class="overlay" style="margin-top:-20px;height:104%">
+  <view class='overlay-shade'></view>
+  <view class="overlay-content tel-content">
+    <view class="title">
+      <image class="overlay_image" src="https://grayscale.qutego.com/upload/wxapp/images/fenxiao/login_1.png"></image>
+      <text class="modal-firstText">请允许授权，让您体验更佳</text>
+    </view>
+    <view class="modal-button">
+      <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">好，授权吧</button>
+    </view>
+  </view>
+</view>
+</template>

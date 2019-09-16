@@ -1,0 +1,93 @@
+<block wx:for="{{return_list}}">
+  <view class="countdown">
+    <image wx:if="{{item.icon==0}}" src="../../../img/clock.png"></image>
+    <image wx:if="{{item.icon==2}}" src="../../../img/check.png"></image>
+    <image wx:if="{{item.icon==1}}" src="../../../img/refuse.png"></image>
+    <text>{{item.status_txt}}</text>
+  </view>
+  <!-- status：1-未处理 2-审核不通过 3/5审核通过 -->
+  <!-- 是否有供应商 -->
+  <block wx:for="{{item.list}}" wx:for-item="item2" wx:if="{{item.status!=1}}">
+    <!-- 审核不通过显示 -->
+    <view class="unagree" wx:if="{{item.icon==1&&item.status==2}}">
+      <text>拒绝理由：{{item.store_content}}</text>
+    </view>
+    
+    <!-- 申请退换货 -->
+    <view class="cause" wx:if="{{(item.status==5&&item.refund_status!=1)||(item.status==3&&item.refund_status!=1)}}">
+      <text>商家已同意退款申请，如需退货，请退货到以下地址</text>
+      <text class="return_adress">退货地址：{{item.address}}</text>
+      <text class="return_policy">收货人{{item.linkman}}  {{item.tel}}</text>
+      <text>如有疑问请联系商家客服</text>
+    </view>
+    <!-- 卖家已发退换货 -->
+    <!-- <view class="subexp" wx:if="{{item.send_status==1&&item.get_products==0}}">
+      <text class="readexp" bindtap="checkExpress" data-orderid="{{item.order_id}}">查看物流</text>
+      <text class="conrece" bindtap='confimtake'>确认收货</text>
+    </view> -->
+  </block>
+
+  <view class='server-feedback'>
+    <view class="details"><text class='server-feedback-title-two'>售后详情</text></view>
+    <view class='server-detail-number'>
+      <text class='server-number-text'>订单编号：</text>
+      <text class='server-number-order' selectable='true'>{{item.order_no}}</text>
+    </view>
+    <view class='server-detail-number'>
+      <text class='server-number-text'>退款金额：</text>
+      <text wx:if="{{(item.status==5&&item.refund_status==1)||(item.status==3&&item.refund_status==1)}}" class='server-number-order red' selectable='true'>￥{{item.return_money}}</text>
+      <text wx:if="{{item.refund_status!=1}}" class='server-number-order red' selectable='true'>最终退款金额由双方协商</text>
+    </view>
+    <view class='server-detail-number'>
+      <text class='server-number-text'>售后类型：</text>
+      <text class='server-number-order' selectable='true'>{{item.type_txt}}</text>
+    </view>
+    <view class='server-detail-number'>
+      <text class='server-number-text'>申请时间：</text>
+      <text class='server-number-order' selectable='true'>{{item.dateline}}</text>
+    </view>
+    <view class='server-detail-number'>
+      <text class='server-number-text'>退款原因：</text>
+      <text class='server-number-order' selectable='true'>{{item.content}}</text>
+    </view>
+    <view class='server-detail-number'>
+      <text class='server-number-text'>备注信息：</text>
+      <text class='server-number-order' selectable='true'>{{item.remark}}</text>
+    </view>
+    <view class='server-detail-number pic'>
+      <text class='server-number-text'>图片举证：</text>
+      <view>
+        <view class='imgList'>      
+          <view class='imgList-li'>
+            <image class='img' wx:for="{{item.images}}" wx:for-item="pic" src="{{pic}}" data-index='{{index}}' bindtap='previewImg'></image>
+          </view>
+        </view>
+        <!-- <image wx:for="{{item.images}}" wx:for-item="pic" src="{{pic}}"></image> -->
+      </view>
+    </view>
+
+  </view>
+  <view wx:for="{{item.list}}" wx:for-item="li" class='purchase-shop-list'>
+    <image class='purchase-shop-image' mode='aspectFill' src='{{li.image}}'></image>
+    <view class='purchase-shop-detail'>
+      <view class='purchase-shop-text'>
+        <text class='purchase-shop-title'>{{li.name}}</text>
+        <text class='purchase-shop-num'>x{{li.pro_num}}</text>
+      </view>
+      <!-- <text class='gray purchase-value' wx:if="{{li.sku_data_arr.length > 0 }}" wx:for="{{li.sku_data_arr}}">
+        <text style='display:inline;' >{{item.name}}{{item.value}}</text>
+      </text> -->
+      <view style="width:540rpx;">
+        <text class='grayorder' wx:for="{{li.sku_data_arr}}">{{item.name}}:{{item.value}}</text>
+      </view>
+      <text class='purchase-price'>￥{{li.pro_price}}</text>
+    </view>
+  </view>
+</block>
+
+
+<!-- <view class="kefu" wx:else bindtap='goStoreServer'>
+  <image class="kefuimg" src='https://grayscale.qutego.com/upload/wxapp/images/fenxiao/manager.png'></image>
+</view> -->
+
+

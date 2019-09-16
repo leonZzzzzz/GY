@@ -1,0 +1,61 @@
+<scroll-view scroll-x='true' class="nav-header-view" scroll-into-view="{{curSwiperIdx=='5'?'listReturn':''}}">
+  <view class="header-col-view {{curSwiperIdx == 'all' ? 'show-border-bottom' : '' }}" data-idx='all' bindtap="swichSwiperItem">
+    <text data-idx='0'>全部</text>
+  </view>
+  <view class="header-col-view {{curSwiperIdx == 'unpay' ? 'show-border-bottom' : '' }}" data-idx='unpay' bindtap="swichSwiperItem">
+    <text data-idx='1'>待付款</text>
+  </view>
+  <view class="header-col-view {{curSwiperIdx == 'unsend' ? 'show-border-bottom' : '' }}" data-idx='unsend' bindtap="swichSwiperItem">
+    <text data-idx='2'>待发货</text>
+  </view>
+  <view class="header-col-view {{curSwiperIdx == 'carry' ? 'show-border-bottom' : '' }}" data-idx='carry' bindtap="swichSwiperItem">
+    <text data-idx='3'>待自提</text>
+  </view>
+  <view class="header-col-view {{curSwiperIdx == 'send' ? 'show-border-bottom' : '' }}" data-idx='send' bindtap="swichSwiperItem" id="listReturn">
+    <text data-idx='4'>配送中</text>
+  </view>
+</scroll-view>
+<!-- status 1-未支付；2-已支付；3-已发货;5-订单取消;7-交易完成(已收货)；9-已退款（全部商品退款) ;6-表示 “补单” -->
+<view style="flex-direction:column;margin-top:75rpx;">
+  <view class="order-list" wx:for="{{orderList}}" wx:if="{{orderList.length>0}}">
+    <view style="justify-content:space-between;font-size:26rpx;">
+      <text>{{item.store_name}}</text>
+      <text class="store-type">{{item.status_msg}}</text>
+    </view>
+
+    <!-- <view> -->
+      <!-- 订单 -->
+      <view class="orders" bindtap="goOrderDetail" wx:for="{{item.list}}" wx:for-item="val" data-orderid="{{val.order_id}}">
+        <view class="order-content">
+          <image src="{{val.image}}"></image>
+          <view class="order-play">
+            <text class="order-a">{{val.name}}</text>
+            <view>
+              <text class="order-b" wx:for="{{val.sku_data_arr}}" wx:for-item="sku">{{sku.name}}</text>
+            </view>
+          </view>
+          <view class="order-play1">
+            <text class="order-a">￥{{val.pro_price}}</text>
+            <text class="order-b">x{{val.pro_num}}</text>
+          </view>
+        </view>
+      </view>
+      <!-- 明细 -->
+      <view class="billing">
+        <text wx:if="{{item.postage!=0.00||item.postage!=0}}">物流服务费：+￥{{item.postage}}</text>
+        <text wx:if="{{item.store_discount_money!=0.00||item.store_discount_money!=0}}">档口优惠：-￥{{item.store_discount_money}}</text>
+        <text wx:if="{{item.platform_discount_money!=0.00||item.platform_discount_money!=0}}">平台优惠：-￥{{item.platform_discount_money}}</text>
+        <text wx:if="{{item.sub_total!=0.00||item.sub_total!=0}}">合计：￥{{item.sub_total}}</text>
+      </view>
+    <!-- </view> -->
+    
+    <view class="patt">
+      <text class="patt-a">取消订单</text>
+      <text class='patt-b'>去支付</text>
+    </view>
+  </view> 
+  <view wx:if="{{orderList.length==0}}" class="no-data-view">
+    <image src="../image/ma_card_no_1.png" mode="widthFix" class="no-data-image"/>
+    <text class="mText" class="no-data-text">您还没有相关的订单</text>
+  </view>
+</view>

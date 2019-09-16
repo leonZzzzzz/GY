@@ -1,0 +1,45 @@
+<view class='search-msg'>
+  <view class="flex-direction:row">
+    <view class='search-input'>
+      <image class='search-image' src='../../image/search.png'></image>
+      <input bindinput='searchProduct' bindconfirm="submit" class='search-text' value="{{value}}" placeholder='输入想要的商品'></input>
+    </view>
+    <text class="cancel" bindtap='setValue'>取消</text>
+  </view>
+  
+  <view class="sales choose">
+    <text class="{{order_by_field=='sales'?'orange':''}}" data-field='sales' bindtap="checkList">商品</text>
+      <text class="{{order_by_field=='price'?'orange':''}}" data-field='price' bindtap="checkList">店铺</text>
+  </view>
+
+  <view class="sales">
+    <text class="{{order_by_field=='sales'?'reds':''}}" data-field='sales' bindtap="checkList">销量</text>
+    <text class="{{order_by_field=='price'?'reds':''}}" data-field='price' bindtap="checkList">价格</text>
+  </view>
+</view>
+
+<!-- 搜索出来的数据 -->
+<view class="search-box" wx:if="{{err_code==0}}">
+  <view wx:for="{{productList}}" class="search-data" data-prodid="{{item.product_id}}" bindtap='gotodetail'>
+    <view class="search-img">
+      <image src="{{item.image}}"></image>
+    </view>
+    <view class="search-con">
+      <text class="con-text">{{item.name}}</text>
+      <view class="con-price">
+        <text><text style="font-size:30rpx">￥</text>{{item.price}}</text>
+        <text>￥{{item.original_price}}</text>
+      </view>
+      <text class='rush-baobao-sell' wx:if="{{item.show_sales==1}}">已售{{item.sales}}件</text>
+    </view>
+  </view>
+</view>
+<view class="weui-loadmore" wx:if="{{err_code==0}}" hidden="{{isHideLoadMore}}">
+  <view class="weui-loading"></view>
+  <view class="weui-loadmore__tips">正在加载</view>
+</view>
+<view class="weui-loadmore" wx:if="{{err_code==0}}" hidden="{{isfalse}}">
+  <view class="weui-loadmore__tips">没有更多数据了</view>
+</view>
+<!-- 没有搜索到数据时 -->
+<view  wx:if="{{err_code==1000}}" class="normal">没有搜到符合您的商品</view>

@@ -1,0 +1,24 @@
+<view class="detail-list">
+  <view class="list-one" wx:for="{{collectData}}">
+    <image src="{{item.image}}"></image>
+    <view class="list-two">
+      <text class="list-name">{{item.name}}</text>
+      <view style="justify-content:space-between;">
+        <text class="list-head">{{item.selling_point}}</text>
+        <text class="cancel" bindtap="cancelCel" data-id="{{item.prod_id}}">删除</text>
+      </view>
+      <view class="list-price">
+        <text>￥</text>
+        <text>{{item.price}}</text>
+      </view>  
+      <view class="stand">
+        <text>{{item.attr_name}}</text>
+        <image class="isadd" src="../image/show.png"></image>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{collectData.length==0}}" class="no-data-view">
+    <image src="../image/ma_card_no_1.png" mode="widthFix" class="no-data-image"/>
+    <text class="mText" class="no-data-text">您还没有收藏</text>
+  </view>
+</view>

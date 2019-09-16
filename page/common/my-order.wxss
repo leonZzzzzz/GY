@@ -1,0 +1,78 @@
+.nav-header-view{position:fixed;width:750rpx;height:80rpx;display:-webkit-box;white-space:nowrap;overflow:hidden;-webkit-backface-visibility:hidden;-webkit-perspective:1000;-webkit-overflow-scrolling:touch;text-align:justify;overflow-x:initial;top:0rpx;z-index:99999999999;opacity:1;background:#fff;border-bottom:1rpx solid #efefef}
+.header-col-view{height:80rpx;width:150rpx;line-height:80rpx;text-align:center;display:inline-block;color:#808080;font-size:30rpx;}
+.show-border-bottom{border-bottom:2px solid #ffcc3c;color:#1b1b1b}
+.order-list{
+  flex-direction:column;padding:20rpx;background:#fff;border-radius:10rpx;margin:20rpx 20rpx 0rpx 20rpx;
+}
+.orders{
+  flex-direction:column;padding-left:10rpx;border-bottom:1px solid #eee;padding-bottom:10rpx;
+}
+.order-content{
+  justify-content: space-between;
+  margin-top:20rpx;
+  margin-bottom:10rpx;
+}
+.store-type{
+  color:#FF840B;
+}
+.order-content>image{
+  width:120rpx;
+  height:120rpx;
+}
+.order-play{
+  flex-direction: column;
+  width:450rpx;
+}
+.order-play1{
+flex-direction: column;
+text-align: right;
+}
+.order-a{
+  font-size:26rpx;
+  text-overflow:ellipsis;
+display:-webkit-box;
+-webkit-box-orient:vertical;
+-webkit-line-clamp:2;
+overflow: hidden;
+height:70rpx;
+}
+.order-b{
+  font-size:24rpx;
+  color:#999;
+  margin-top:10rpx;
+}
+.billing{
+  flex-direction:column;
+  text-align: right;
+  font-size:22rpx;
+  color:#999;
+  margin-top:20rpx;
+}
+.billing text:last-child{
+  font-size:24rpx;
+  color:#000;
+}
+.patt{
+  margin-top:20rpx;
+  font-size:24rpx;
+  justify-content: flex-end;
+}
+.patt text{
+  width:150rpx;
+  text-align: center;
+  margin-left:20rpx;
+  border-radius:10rpx;
+}
+.patt-a{
+  padding:10rpx 20rpx;
+  background:#eee;
+}
+.patt-b{
+  padding:10rpx 20rpx;
+  background:#0789ca;
+  color:#fff;
+}
+.no-data-view{flex-direction:column;align-items:center;padding-top:100rpx}
+.no-data-image{width:146rpx;height:160rpx;margin-bottom:50rpx}
+.no-data-text{text-align:center;color:#999;line-height:130%;font-size:28rpx}
+.no-data-btn{width:176rpx;height:60rpx;border-width:0;margin-top:38rpx;text-align:center;background:#ffe71c;border-radius:6rpx;font-size:28rpx;line-height:60rpx;margin-bottom:48rpx}

@@ -1,0 +1,144 @@
+.dealwith{
+  background:#fff;
+  padding:30rpx 20rpx;
+  margin-top:20rpx;
+}
+.dealwith1{
+  background:#fff;
+  padding:30rpx 20rpx;
+  margin-top:10rpx;
+  justify-content: space-between;
+}
+.deal-a{
+  font-size:30rpx;
+  color:#999;
+  margin-top:5rpx;
+}
+.deal-b{
+  font-size:36rpx;
+  color:#FF840B;
+}
+.store-deal{
+  background:#fff;
+  padding:20rpx;
+  margin-top:10rpx;
+  flex-direction: column;
+}
+.store-deal>text{
+  font-size:26rpx;
+}
+.store-a{
+  justify-content: space-between;
+  font-size:26rpx;
+  margin-top:20rpx;
+}
+icon{
+  margin-right:10rpx;
+}
+.pattern{
+  padding:20rpx;
+  margin-bottom:10rpx;
+  background:#fff;
+}
+.pattern text{
+  font-size:30rpx;
+}
+.payfor{
+  position:fixed;
+  bottom:0;
+  background:#FF840B;
+  width:100%;
+  padding:20rpx;
+}
+.payfor text{
+  color:#fff;
+  font-size:26rpx;
+  margin:0 auto;
+}
+.unpay{
+  border-top:1px solid #eee;
+margin-top:20rpx;
+padding-top:20rpx;
+}
+.no{
+  margin-left:40rpx;
+}
+.noway{
+  background:#999 !important;
+}
+/*购买成功提示开始  */
+
+.matte-hint-father {
+  display: block;
+  width: 750rpx;
+  min-height: 100%;
+  position: fixed;
+  background: #494949;
+  z-index: 9999999999;
+  top: 0rpx;
+}
+
+.matte-hint {
+  width: 626rpx;
+  height: 500rpx;
+  background: #fff;
+  position: fixed;
+  border-radius: 15rpx;
+  z-index: 999999;
+  top: 318rpx;
+  left: 62rpx;
+  font-size: 0rpx;
+  display: block;
+}
+
+.matte-total {
+  display: block;
+}
+
+.matte-close {
+  width: 30rpx;
+  height: 30rpx;
+  float: right;
+  margin-top: 20rpx;
+  margin-right: 20rpx;
+}
+
+.matte-close::after {
+  clear: both;
+  content: '.';
+  display: block;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.matte-icon {
+  height: 200rpx;
+  width: 160rpx;
+  clear: both;
+  margin: 0 auto;
+}
+
+.matte-success {
+  clear: both;
+  font-size: 46rpx;
+  color: #1b1b1b;
+  text-align: center;
+  margin-top: 60rpx;
+}
+
+.matte-detail {
+  font-size: 30rpx;
+  color: #999;
+  text-align: center;
+  margin-top: 30rpx;
+}
+
+/*购买成功提示结束  */
+
+.payway{
+  background:#fff;
+padding:20rpx;
+border-bottom:1px solid #eee;
+font-size:34rpx;
+}

@@ -1,0 +1,157 @@
+<view style="flex-direction:column;">
+  <swiper wx:if="{{product_image_list.length>0}}" autoplay='autoplay' class='list-header-image' indicator-dots='true' indicator-active-color='#ff3030' indicator-color='#ffffff' interval='3000' circular='true'>
+    <swiper-item class='list-header-image' wx:for='{{product_image_list}}' wx:key="{{index}}">
+      <view class='imgList'>      
+        <view class='imgList-li'>
+          <image class='img' src='{{item.image}}' data-index='{{index}}' bindtap='previewImg'></image>
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
+  <swiper wx:else autoplay='autoplay' class='list-header-image' indicator-dots='true' indicator-active-color='#ff3030' indicator-color='#fff' interval='3000' circular='true'>
+    <swiper-item class='list-header-image'>
+      <navigator class='header-image'>
+        <image src='../image/tab/head-no.png' mode='aspectFill' lazyLoad="true"></image>
+      </navigator>
+    </swiper-item>
+  </swiper>
+
+  <view class="details">
+    <text class="detail-name">{{detailData.name}}</text>
+    <view class="detail-title">
+      <text class="subhead">{{detailData.selling_point}}</text>
+    </view>
+    <view class="detail-title">
+      <view class="detail-son">
+        <view >
+          <text style="font-size:40rpx;margin-top:24rpx;color:#FF840B">￥</text>
+          <text style="font-size:60rpx;color:#FF840B">{{price}}</text>
+          <view class="outprint">
+            <text class="cost">￥{{detailData.original_price}}</text>
+          </view>
+        </view>
+        <text style="font-size:26rpx;color:#999;">已售<text style="color:#FF840B;">{{detailData.sales}}</text>件 <text style="margin-left:30rpx;">库存123件</text></text>
+      </view>
+      <view>
+        <image class="share collect" src='../../img/gy-icon_14.png' bindtap="collect"></image>
+        <image class="share" src='../../img/gy-icon_17.png' bindtap="onshare"></image>
+      </view>
+    </view>
+
+    <view class="order-time">
+      <text>接单时间：06:00-12:00</text>
+      <text>在商家接单时间外下单，需要通过商家确认后再支付货款</text>
+    </view>
+  </view>
+
+  <view class="property"  wx:if='{{property_list.length>0}}'>
+    <text>选择规格</text>
+    <view class="prolist" wx:for="{{property_list}}"  wx:for-index="x" wx:key='{{x}}'>
+      <text class="detail-list">{{item.name}}</text>
+      <view style="flex-direction:row">
+        <text wx:for="{{item.values}}" wx:for-item="val"  wx:for-index="j" wx:key='{{j}}' data-x="{{x}}" data-j="{{j}}"  data-image="{{val.image}}" class='detail-info {{val.checked? "chooseTab" : ""}}' bindtap='chooseProperty'>{{val.value}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class='card-banner-area' bindtap="goCouponGift" data-storeid="{{whostore}}">
+    <view class='card-banner-item1'>
+      <text style="font-weight:bold;">优惠</text>
+      <view style="width:500rpx;font-weight:bold;">
+        <text wx:for="{{coupons}}" class="coupon-a">{{item}}</text>
+      </view>
+      <text>领券 ></text>
+    </view>
+  </view>
+
+  <view class='four' >
+    <view wx:for="{{valueList}}" wx:key="{{index}}" class='card-banner-item'>
+      <image src="{{item.src}}"></image>
+      <text>{{item.txt}}</text>
+    </view>
+  </view>
+
+  <view class="storeinfo" data-storeid="{{store_info.store_id}}" bindtap="enterStore">
+    <image src="{{store_info.logo}}"></image>
+    <view class="store_name">
+      <text class="store_title">{{store_info.name}}</text>
+      <text class="store_main">主营：{{store_info.intro}}</text>
+    </view>
+    <text class='getinto'>进入店铺</text>
+  </view>
+
+  <view class="standard">
+    <text class="standard_title">商品规格</text>
+    <view class="key_val">
+      <view class="range" wx:for="{{attr_detail}}" wx:for-item="val">  
+        <text style="color:#999;">{{val.attr}}</text>
+        <text>{{val.value}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="standard">
+    <text class="standard_title">商品详情</text>
+  </view>
+  <view style="height:88rpx;"></view>
+
+  <view class="invite-friend-cluster">
+    <view class='invite-ke-server invite-total' bindtap="openphone">
+      <!-- <button class="invite-button" > -->
+        <image class='invite-ke-server-img' src="../image/three.png"></image> 
+      <!-- </button> -->
+      <text class='invite-ke-server-text'>客服</text>
+    </view>
+  
+    <view class='invite-index invite-total' bindtap='goNewIndex'>
+      <image class='invite-index-image' src='../../img/one.png'></image>
+      <text class='invite-index-text'>首页</text>
+    </view>
+    
+    <view class='invite-car invite-total' bindtap='goCart'>
+      <image class='invite-car-img' src='../../img/two.png'></image>
+      <text class='invite-car-num'>{{cart_list_number}}</text>
+      <text class='cart-ke-server-text'>购物车</text>
+    </view>
+
+    <view class="cartaddorlost">
+      <text bindtap="reducecart">-</text>
+      <text>{{amount}}</text>
+      <text bindtap="addcart">+</text>
+    </view>
+
+    <view class='add-invite-car invite-total' bindtap="addShopCart" data-type="addcart">
+      <text class='add-invite-car-child'>加入购物车</text>
+    </view>
+
+    <!-- <form bindsubmit='doBuy' report-submit='true' class='current-buying invite-total'>
+      <text class='current-buying-child'>立即购买</text>
+    </form> -->
+  </view>
+</view>
+
+<!--屏幕背景变暗的背景  -->
+<!-- <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view> -->
+
+<!-- <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
+  <view class="invite-content">
+    <text>{{shareOpt.title}}</text>
+    <view class='item-box'>
+      <view class='item'>
+        <button class='share-btn' open-type='share' data-title="{{product.name}}" data-price="{{product.price}}" data-imgurl="{{product.imgurl}}"></button>
+        <image src='{{shareOpt.shareImg}}'></image>
+        <text>{{shareOpt.shareTxt}}</text>
+      </view>
+      <view class='item' bindtap='onshowCode'>
+        <image src='{{shareOpt.posterImg}}'></image>
+        <text>{{shareOpt.posterTxt}}</text>
+      </view> 
+      <view class='item' bindtap='onshowposter'>
+        <image src='{{shareOpt.picImg}}'></image>
+        <text>{{shareOpt.picTxt}}</text>
+      </view>
+    </view>
+  </view>
+</view> -->
+
+<share-panel shareShade="{{shareShade}}" opt="{{shareOpt}}" poster="{{product}}" product="{{product}}" posterConfig="{{jdConfig}}" jdImg="{{qrcodeUrl}}" isFx="{{isFx}}"></share-panel>

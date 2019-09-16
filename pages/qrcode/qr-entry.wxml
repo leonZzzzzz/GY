@@ -1,0 +1,5 @@
+<!--pages/qrcode/qr-entry.wxml-->
+<import src="../../page/common/template/get-tel.wxml" />
+
+<template wx:if="{{hasPhone==true}}" is="getphone-modal" data="{{locationid}}"></template>
+<template wx:if="{{isInfo==true}}" is="getuserInfo-modal"></template>

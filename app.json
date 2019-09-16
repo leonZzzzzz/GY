@@ -1,0 +1,95 @@
+{
+  "pages": [
+    
+    "page/tabBar/home/index-new",
+    "page/tabBar/shopping/shoppstore-index",
+    "page/tabBar/category/category",
+    "page/tabBar/goods/cart",
+    "page/tabBar/my/myself",
+
+    "page/template/getpower",
+    "page/template/login",
+    "page/template/phone-login",
+    "page/template/gainphone",
+    "page/common/goods-detail",
+    "page/common/searchList",
+    "page/common/setting",
+    "page/common/wholesaler",
+    "page/common/lesalerDetail",
+    "page/common/coupons",
+    "page/common/buy",
+    "page/common/payment",
+    "page/common/card_get",
+    "page/common/mycards",
+    "page/common/collect",
+    "page/common/address_list",
+    "page/common/address",
+    "page/common/my-order",
+    "page/common/order-detail",
+    "page/common/apply-sales",
+    "page/common/after-sales",
+    "page/common/purchase-detail",
+    "page/common/use-coupon",
+    "page/common/grade",
+    
+    "pages/qrcode/qr-entry"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "是否允许？"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "谷裕生鲜",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#7f8389",
+    "selectedColor": "#2d2727",
+    "borderStyle": "black",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "page/tabBar/home/index-new",
+        "text": "首页",
+        "iconPath": "img/gy-icon_80.png",
+        "selectedIconPath": "img/gy-icon_11.png"
+      },
+      {
+        "pagePath": "page/tabBar/shopping/shoppstore-index",
+        "text": "供应商",
+        "iconPath": "img/gy_icon_88.png",
+        "selectedIconPath": "img/gy-icon_62.png"
+      },
+      {
+        "pagePath": "page/tabBar/category/category",
+        "text": "分类",
+        "iconPath": "img/gy-icon_65-2.png",
+        "selectedIconPath": "img/gy-icon_65.png"
+      },
+      {
+        "pagePath": "page/tabBar/goods/cart",
+        "text": "购物车",
+        "iconPath": "img/gy_icon_26.png",
+        "selectedIconPath": "img/gy-icon_69.png"
+      },
+      {
+        "pagePath": "page/tabBar/my/myself",
+        "text": "我的",
+        "iconPath": "img/gy_icon_89.png",
+        "selectedIconPath": "img/gy-icon_67.png"
+      }
+    ]
+  },
+
+
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+ 
+  "debug": true,
+  "sitemapLocation": "sitemap.json"
+}

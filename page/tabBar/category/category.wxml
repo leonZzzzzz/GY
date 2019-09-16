@@ -1,0 +1,69 @@
+<view class="search" bindtap="gosearchList">
+  <input placeholder='请输入你想要采购的商品' placeholder-class='placestyle' ></input>
+</view>
+
+<view style="justify-content: space-between;background:#fff;height:82rpx;border-bottom:1px solid #eee;position:fixed;z-index:8881;top:79rpx;">
+  <scroll-view scroll-x='true' class="nav-header-view" scroll-into-view="{{cat_fid>'126'?'listReturn_'+cat_fid:''}}">
+    <view wx:for="{{classifyList}}" class="header-col-view {{cat_fid == item.cat_id?'show-border-bottom':''}}" data-index="{{index}}" data-fid="{{item.cat_id}}" bindtap="swichSwiperItem"  id="{{item.cat_id>'126'?'listReturn_'+item.cat_id:''}}">
+      <text>{{item.cat_name}}</text>
+    </view>
+  </scroll-view>
+  <view class="down" bindtap="showdetail"  wx:if="{{showup}}">
+    <image src="../../../img/bottom.png"></image>
+  </view>
+  <view class="down" bindtap="hidedetail" wx:if="{{!showup}}">
+    <image src="../../../img/top.png"></image>
+  </view>
+</view>
+<!-- 全部分类 -->
+<view class="allmethod"  wx:if="{{!showup}}">
+  <view class="allin">
+    <text>全部分类</text>
+    <view  bindtap="hidedetail">
+      <image src="../../image/down_to.png"></image>
+    </view>
+  </view>
+  <view class="fruitall">
+    <view class="fruitflex">
+      <text bindtap="choosemeth" wx:for="{{classifyList}}" data-catid="{{item.cat_id}}" data-index="{{index}}" class="{{cat_fid == item.cat_id?'show-back':''}}">{{item.cat_name}}</text>
+    </view>
+  </view>
+</view>
+
+<view class="container">
+  <!-- 左侧分类 -->
+  <view class="conleft">
+    <block wx:for="{{classifyList}}">
+      <text wx:for="{{item.son_cat}}" wx:if="{{cat_fid==item.cat_id}}" wx:for-item="value" class="{{cat_sid==value.cat_id?'back':''}}" data-sid="{{value.cat_id}}" data-index="{{index}}" bindtap="swichSwiperItem">{{value.cat_name}}</text>
+    </block>
+  </view>
+
+  <view class="conright">
+    <view class="contitle">
+      <text class="{{order_by_field=='sales'?'reds':''}}" data-meth='sales' bindtap="checkItem">销量</text>
+      <text class="{{order_by_field=='price'?'reds':''}}" data-meth='price' bindtap="checkItem">价格</text>
+      <text class="{{order_by_field=='price'?'reds':''}}" data-meth='price' bindtap="checkItem">好评</text>
+      <text class="{{order_by_field=='price'?'reds':''}}" data-meth='price' bindtap="checkItem">优质等级:所有</text>
+    </view>
+    <view class="conproducts">
+      <view class="flex-con">
+        <view class="trade-box" wx:for="{{products}}" wx:if="{{products.length>0}}" data-product="{{item.product_id}}" bindtap="gotodetail">
+          <image src="{{item.image}}"></image>
+          <text class="trade-name">{{item.name}}</text>
+          <text class="trade-prc">{{item.attr_name}}</text>
+          <view class="trade-price">
+            <view>
+              <text style="font-size:18rpx !important;margin-top:6rpx;">￥</text>
+              <text style="font-size:24rpx;">{{item.price}}</text>
+            </view>
+            <image src="../../../img/gy-icon_06.png"></image>
+          </view>
+        </view>
+        <view wx:if="{{products.length==0}}" class="no-data-view">
+          <image src="../../image/ma_card_no_1.png" mode="widthFix" class="no-data-image"/>
+          <text class="mText" class="no-data-text">此分类没有商品</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

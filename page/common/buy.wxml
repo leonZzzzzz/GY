@@ -1,0 +1,126 @@
+<view style="flex-direction:column;">
+  <!-- 有地址 -->
+  <view class="addres" bindtap="addrViewClick">
+    <image class="location" src="../image/address.png"></image>
+    <view wx:if="{{address}}" class="addres-name">
+      <view class="addres-one">
+        <text>收货人：{{address.name}}  {{address.tel}}</text>
+        <text class="default">默认</text>
+      </view>
+      <text>{{address.province_txt}}{{address.city_txt}}{{address.area_txt}}{{address.address}}</text>
+    </view>
+    <!-- 没有地址去填写 -->
+    <view wx:else class="addres-name">
+      <text class="headadd">添加收货地址</text>
+    </view>
+    <image class="giright" src="../image/address-go.png"></image>
+  </view>
+  
+  <!-- 订单 -->
+  <view class="orders" wx:for="{{product}}">
+    <view style="flex-direction:column;border-bottom:1px solid #eee;padding-bottom:10rpx;">
+      <view>
+        <text style="font-size:30rpx;">{{item.store_name}}</text>
+        <text class="later" wx:if="{{item.later_day==1}}">支持账期结算(7天)</text>
+      </view>
+      <view class="order-comon" wx:for="{{item.product_infos}}" wx:for-item="val">
+        <image class="detail-img" src="{{val.product_pic}}"></image>
+        <view class="order-content">
+          <text class="order-name">{{val.product_name}}</text>
+          <text class="order-qua" wx:for="{{val.sku_data}}" wx:for-item="data">{{data.name}}:{{data.value}}</text>
+        </view>
+        <view style="flex-direction:column;text-align:right">
+          <text class="price-a">￥{{val.product_price}}</text>
+          <text class="price-b">x{{val.quantity}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="peisong">
+      <text>配送方式</text>
+      <view style="padding:20rpx;">
+        <radio-group bindchange="milkbrand" style="width:100%;flex-direction:row" data-index="{{index}}">
+          <view class="checq" wx:for="{{item.methsend}}" wx:for-item="meth">
+            <radio value="{{meth.value}}" checked='{{meth.checked}}'></radio>
+            <text class="milktext">{{meth.name}}</text>
+          </view>
+        </radio-group>
+      </view>
+      <view class="pickup" wx:if="{{item.modeis==1}}">
+        <text>档口地址：{{item.address}}</text>
+        <text>营业时间：{{item.service_time}}</text>
+        <text>联系电话：<text style="color:#0789ca">{{item.service_tel}}</text></text>
+        <text>如有疑问请先联系档口卖家</text>
+      </view>
+    </view>
+
+    <view class="offer" wx:for="{{item.coupous}}" wx:for-item="cou" bindtap="gousecoupon" data-storeid="{{item.store_id}}">
+      <text>档口优惠</text>
+      <text class="gray" wx:if="{{cou.select==1}}">{{cou.cname}}</text>
+      <image class="gotoright rig" src="../image/address-go.png"></image>
+    </view>
+
+    <view class="offer">
+      <text>订单备注</text>
+      <input class="reason" placeholder='选填，请先和卖家协商一致'></input>
+    </view>
+
+    <view class="subtotal">
+      <block wx:if="{{item.coupous.length>0}}" wx:for="{{item.coupous}}" wx:for-item="cou">
+        <text>物流服务费：+￥{{item.postage}}</text>
+        <text wx:if="{{cou.select==1}}">档口优惠：-￥{{cou.face_money}}</text>
+        <text wx:if="{{cou.select==2}}">档口优惠：0.00</text>
+        <text style="color:#000;font-size:26rpx;">小计：<text style="color:#FF840B">￥{{item.retotal_money}}</text></text>
+      </block>
+      <block wx:if="{{item.coupous.length==0}}">
+        <text>物流服务费：+￥{{item.postage}}</text>
+        <text>档口优惠：-￥0.00</text>
+        <text style="color:#000;font-size:26rpx;">小计：<text style="color:#FF840B">￥{{item.total_money}}</text></text>
+      </block>
+    </view>
+  </view>
+
+  <!-- 谷裕配送 -->
+  <view class="favorable">
+    <text class="favor-a">配送时间</text>
+    <view>
+      <picker mode="date" start="1978-01-01" end="2020-1-23" bindchange="bindDateChange">  
+        <view class="birth" wx:if="{{birflag}}">请选择</view>
+        <view class="birth1" wx:if="{{!birflag}}">{{bir}}</view>
+      </picker> 
+      <image wx:if="{{birflag}}" class="gotoright" src="../image/address-go.png"></image>
+    </view>
+    
+  </view>
+  <!-- 平台优惠 -->
+  <view class="favorable">
+    <text class="favor-a">平台优惠</text>
+    <text class="favor-b">30元优惠券</text>
+    <image class="gotoright" src="../image/address-go.png"></image>
+  </view>
+  <!-- 结账 -->
+  <view class="amount">
+    <view class="amount-price">
+      <text>商品金额</text>
+      <text>￥{{total_product_money}}</text>
+    </view>
+    <view class="amount-price">
+      <text>总物流服务费</text>
+      <text>￥{{total_postage}}</text>
+    </view>
+    <view class="amount-price">
+      <text>档口优惠</text>
+      <text>￥{{stallcoupon}}</text>
+    </view>
+    <view class="amount-price">
+      <text>平台优惠</text>
+      <text>￥0.00</text>
+    </view>
+    <text class="submount">合计：{{total_money}}</text>
+  </view>
+  <view style="height:84rpx"></view>
+  <view class="paymoney">
+    <text style="font-size:32rpx;margin-left:20rpx;line-height:84rpx;">合计：<text style="color:#FF840B">￥{{total_money}}</text></text>
+    <text class="submit" bindtap='getCreatOrder'>提交订单</text>
+  </view>
+</view>

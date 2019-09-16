@@ -1,0 +1,34 @@
+.search-msg{flex-direction:column;z-index:9999999;position:fixed;top:0;display:flex;width:750rpx;height:230rpx;background-color:#fff}.search-input{width:625rpx;height:60rpx;position:relative;background:#efefef;margin-left:21rpx;margin-top:7rpx;border-radius:5rpx}.search-image{position:absolute;width:30rpx;height:30rpx;left:20rpx;top:15rpx}.search-text{position:absolute;font-size:26rpx;font-family:PingFangSC-Regular;font-weight:400;color:#000;left:60rpx;display:inline-block;width:450rpx;height:60rpx}.cancel{font-size:24rpx;margin-left:25rpx;line-height:60rpx;margin-top:9rpx}.search-box{justify-content:space-between;display:-webkit-flex;display:flex;flex-direction:row;flex-wrap:wrap;padding:20rpx;margin-top:150rpx;}
+
+.search-data:nth-child(odd){display:flex;flex-direction:column;margin-right:10rpx;margin-bottom:20rpx;width:345rpx;height:495rpx;background:#fff}
+.search-data:nth-child(even){display:flex;flex-direction:column;margin-left:10rpx;margin-bottom:20rpx;width:345rpx;height:495rpx;background:#fff}
+
+.search-img{width:345rpx;height:345rpx}.search-img image{width:100%;height:100%}.search-con{flex-direction:column;font-size:24rpx}.con-text{font-weight:bold;color:#333;padding:10rpx;line-height:35rpx;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;word-break:break-all;-webkit-box-orient:vertical;-webkit-line-clamp:2;margin:5rpx;height:60rpx}.con-price{padding:10rpx}.con-price text:nth-child(1){color:#d24749;font-size:36rpx}.con-price text:nth-child(2){margin-top:11rpx;color:#999;text-decoration:line-through;margin-left:10rpx}.normal{font-size:30rpx;color:#333;justify-content:space-around;line-height:500rpx}.weui-loading{margin:0 5px;width:20px;height:20px;display:inline-block;vertical-align:middle;-webkit-animation:weuiLoading 1s steps(12,end) infinite;animation:weuiLoading 1s steps(12,end) infinite;background:transparent url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHBhdGggZmlsbD0ibm9uZSIgZD0iTTAgMGgxMDB2MTAwSDB6Ii8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjRTlFOUU5IiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgLTMwKSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iIzk4OTY5NyIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSgzMCAxMDUuOTggNjUpIi8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjOUI5OTlBIiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0icm90YXRlKDYwIDc1Ljk4IDY1KSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iI0EzQTFBMiIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSg5MCA2NSA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNBQkE5QUEiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoMTIwIDU4LjY2IDY1KSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iI0IyQjJCMiIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSgxNTAgNTQuMDIgNjUpIi8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjQkFCOEI5IiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0icm90YXRlKDE4MCA1MCA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNDMkMwQzEiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTE1MCA0NS45OCA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNDQkNCQ0IiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTEyMCA0MS4zNCA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNEMkQyRDIiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTkwIDM1IDY1KSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iI0RBREFEQSIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSgtNjAgMjQuMDIgNjUpIi8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjRTJFMkUyIiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0icm90YXRlKC0zMCAtNS45OCA2NSkiLz48L3N2Zz4=) no-repeat;background-size:100%}.weui-loadmore{width:30%;margin:1.5em auto;line-height:1.6em;font-size:14px;text-align:center}.weui-loadmore__tips{display:inline-block;vertical-align:middle}
+.rush-baobao-sell{
+  margin:10rpx;
+font-size:23rpx;
+color:#999;
+}
+.sales{
+  background:#fff;
+  padding:20rpx;
+  font-size:32rpx;
+  /* margin-top:90rpx; */
+  /* position:fixed; */
+  width:100%;
+}
+.sales text{
+  margin-right:50rpx;
+}
+.reds{
+  text-decoration: underline;
+  color:red;
+}
+.orange{
+  color:#FF840B;
+}
+.choose{
+  justify-content: space-between;
+  padding:0 150rpx;
+  border-bottom:1px solid #eee;
+}

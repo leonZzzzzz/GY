@@ -1,0 +1,25 @@
+page{background:#ececec}.myself{display:block}.myself-phone{margin-right:20rpx;text-align:right;flex-direction:column;justify-content:center}.myself-top{justify-content:space-between;height:170rpx;width:750rpx;background:#fff}.myself-photo{display:inline-block;overflow:hidden;margin-top:19rpx;margin-left:24rpx;border-radius:50%}.myself-detail{width:410rpx;flex-direction:column;font-size:0rpx;margin-top:35rpx;margin-left:14rpx}.myself-image{margin-top:25rpx;width:122rpx;height:122rpx;border-radius:50%;border:1rpx #fff solid}.heading{width:122rpx;height:122rpx;border-radius:40%;object-fit:cover;clip-path:circle(40% at center);display:block;float:left}.myself-addr-text{font-size:26rpx;
+color:#1b1b1b;
+margin-top:10rpx;
+}.myself-id{font-size:20rpx;
+background:#FF840B;
+width:112rpx;
+text-align:center;
+color:#fff;
+padding:5rpx 15rpx;
+border-radius: 45rpx;
+}
+.myself-price{
+  font-size:26rpx;
+  margin-top:10rpx;
+}
+.myself-name{width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-right:24rpx;font-size:34rpx;color:#1b1b1b}.myself-addr-image{width:16rpx;height:26rpx;padding-left:10rpx}.myself-address{margin-top:10rpx;display:flex;font-size:0rpx;justify-content:flex-start;align-items:center}.myself-order{margin-top:15rpx;display:flex;font-size:0rpx;justify-content:space-between;height:88rpx;line-height:88rpx;padding:0rpx 24rpx;border-bottom:1rpx solid #ececec;background:#fff}.myself-order-total{font-size:0rpx;display:flex;align-items:center}.myself-order-image{width:18rpx;height:28rpx;display:inline-block}.myself-order-list{font-size:28rpx;display:inline-block;color:#1b1b1b}.myself-order-going{font-size:24rpx;display:inline-block;margin-right:10rpx;color:#999}.wait-shopping-list{height:128rpx;display:flex;width:750rpx;justify-content:space-around;background:#fff;margin-bottom:16rpx}.wait-order-wrap{font-size:0rpx;display:inline-block;width:150rpx;height:128rpx;text-align:center;padding-top:20rpx;margin-bottom:10rpx}.wait-order-image{width:45rpx;height:45rpx;display:block;margin:0 auto;}.wait-order-text{font-size:24rpx;color:#666;display:block;margin-top:8rpx}.my-detail-msg{display:flex;width:750rpx;height:88rpx;justify-content:space-between;border-bottom:1rpx solid #ececec;background:#fff}.my-detail-gro{font-size:0rpx;display:flex;align-items:center;height:88rpx;margin-left:24rpx}.my-gro-go{display:flex;height:88rpx;align-items:center;margin-right:24rpx}.my-gro-text{font-size:30rpx;color:#1b1b1b;margin-left:28rpx;display:inline-block}.my-gro-img{width:44rpx;height:44rpx}.my-go-img{width:18rpx;height:28rpx}.my-store-service{margin-top:16rpx}.changePhone{margin:0 auto;margin-top:50rpx;width:690rpx;height:88rpx;line-height:88rpx;background-color:#fff;border-radius:6rpx;border:solid 1rpx #e5e5e5;text-align:center}
+.myself-top1{height:170rpx;
+width:750rpx;
+background:#fff;
+padding-left:10px;
+}
+
+.myself-top1>.myself-detail{
+
+}

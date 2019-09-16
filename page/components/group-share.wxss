@@ -1,0 +1,8 @@
+@import './share-page.wxss';
+.group-two text{
+  /* background:#ff0000; */
+color:red;
+font-size:20rpx;
+padding:5rpx;
+margin-bottom:15rpx;
+}

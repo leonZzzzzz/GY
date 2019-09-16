@@ -1,0 +1,63 @@
+<view style="flex-direction:column;">
+  <view class="dealwith">
+    <text class="deal-a">应付金额：</text>
+    <text class="deal-b">￥{{dealmoney}}</text>
+  </view>
+  <view class="store-deal">
+    <block wx:if="{{payable.length>0}}">
+      <text>支持账期结算店铺</text>
+      <view class="store-a" wx:for="{{payable}}">
+        <view>
+          <icon wx:if="{{item.checked}}" type='success' size='16' color="#FF840B" bindtap="checkitem" data-index="{{index}}" data-orderno="{{item.order_no}}"></icon>
+          <icon wx:else type='circle' size='16' color="#FF840B" bindtap="checkitem" data-index="{{index}}" data-orderno="{{item.order_no}}"></icon>
+          <text class="store-name">{{item.store_name}}</text>
+        </view>
+        <text class="store-price">￥{{item.pay_money}}</text>
+      </view>
+    </block>
+    
+    <block wx:if="{{unpayable.length>0}}">
+      <text class="unpay">以下是接单时间外，需要通过商家确认后再结算货款</text>
+      <view class="store-a no" wx:for="{{unpayable}}">
+        <view>
+          <text class="store-name">{{item.store_name}}</text>
+        </view>
+        <text class="store-price">￥{{item.pay_money}}</text>
+      </view>
+    </block>
+    
+  </view>
+
+  <view class="dealwith1">
+    <text class="deal-a">需付金额</text>
+    <text class="deal-b">￥{{actual}}</text>
+  </view>
+
+  <view style="margin-top:20rpx;flex-direction:column" wx:if="{{whether}}">
+    <text class="payway">支付方式</text>
+    <radio-group bindchange="milkbrand" style="width:100%;flex-direction:column" data-index="{{index}}">
+      <view class="pattern" wx:for="{{pattern}}" wx:for-item="meth">
+        <radio value="{{meth.value}}" checked='{{meth.checked}}' size='16' color="#FF840B"></radio>
+        <text class="milktext">{{meth.name}}</text>
+      </view>
+    </radio-group>
+  </view>
+  
+  <view class="payfor" bindtap='goPay' wx:if="{{whether}}">
+    <text wx:if="{{actual!='0.00'}}">去支付</text>
+    <text wx:if="{{actual=='0.00'}}">去结账</text>
+  </view>
+  <view class="payfor noway" wx:else>
+    <text>需卖家确认订单</text>
+  </view>
+</view>
+
+<!--购买成功之后弹窗  -->
+<view class='matte-hint-father' wx:if='{{matteShow}}' bindtap='closeBtn'>
+  <view class='matte-hint'>
+    <image class='matte-close matte-total' src='../image/close.png'></image>
+    <image class='matte-icon matte-total' src='../image/success-icon.png'></image>
+    <text class='matte-success matte-total'>购买成功</text>
+    <text class='matte-detail matte-total'>恭喜你，已经购买成功</text>
+  </view>
+</view>
